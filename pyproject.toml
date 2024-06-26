@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "cloud-radar-hook-plugin-example"
+version = "0.1.11"
+description = "A reference implementation showing how to implement a Cloud Radar plugin providing compliance rules."
+authors = ["David Hutchison <david@devwithimagination.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "cloud_radar_hook_plugin_example"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cloud-radar = "^0.12.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.1"
+
+
+[tool.poetry.group.lint.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+bandit = "^1.7.8"
+commitizen = "^3.26.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."cloudradar.unit.plugins.hooks"]
+a = "cloud_radar_hook_plugin_example:ExamplePlugin"
